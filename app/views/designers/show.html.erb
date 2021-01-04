@@ -1,0 +1,18 @@
+<h1>This is our individual Designer page</h1>
+<br/>
+
+<h2>  <%= @designer.name %>  </h2>
+<h2>  <%= @designer.yrs_exp %>  </h2>
+<h2>  <%= @designer.bio %>  </h2>
+
+<br/>
+
+<h3>List of Upcoming Appointments: </h3>
+
+<% @designer.appointments.each do | a | %>
+    <li> On <%= a.date %> at <%= a.time %> with <%= link_to a.client.name, client_path(a.client) %> regarding <%= a.project_type %> project. They have a timeline of <%= a.timeline %> and have a budget of $<%= a.budget %></li>
+    <% end %>
+
+<br/>
+
+<%= link_to "Designers", designers_path %>

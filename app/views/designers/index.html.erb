@@ -1,0 +1,11 @@
+<h1>List of our Designers</h1>
+
+<ul>
+<%@designers.each do | d |%>
+    <li>
+        <%= link_to d.name, designer_path(d)%>
+    </li>
+    <%end%>
+</ul>
+
+<%= link_to "New Designer Form", designers_new_path%>

@@ -1,0 +1,27 @@
+<h1>This is our individual Client page</h1>
+<br/>
+
+<h2>  <%= @client.name %>  </h2>
+<h2>  <%= @client.location %>  </h2>
+<h2>  <%= @client.phone_number %>  </h2>
+<h2>  <%= @client.email %>  </h2>
+
+<br/>
+
+<h3>List of Upcoming Appointments: </h3>
+
+<% @client.appointments.each do | a | %>
+    <li> On <%= a.date %> at <%= a.time %> with <%= link_to a.designer.name, designer_path(a.designer) %> regarding <%= a.project_type %> project. </li>
+    
+    <%= form_for a, method: :delete do | f | %>
+    <%= f.submit "Cancel Appointment"%>
+    <% end %>
+
+    <%= form_for a, method: :edit do | f | %>
+    <%= f.submit "Edit Appointment"%>
+    <% end %>
+<% end %>
+<br/>
+
+<%= link_to "Clients", clients_path %>
+
